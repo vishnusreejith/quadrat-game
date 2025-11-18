@@ -53,29 +53,34 @@
 <body class="bg-green-100 min-h-screen flex items-center justify-center p-4">
 
     <!-- Main Module Container -->
-    <div class="w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-6 sm:p-10 text-center overflow-hidden">
+    <!-- Added mx-auto for explicit centering, reduced horizontal padding on mobile with p-4 sm:p-10 -->
+    <div class="w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-6 sm:p-10 text-center overflow-hidden mx-auto">
 
         <!-- Screen 1: The Big Question -->
         <div id="screen1" class="module-screen active-screen space-y-6">
             <div class="w-full h-64 bg-green-600 rounded-lg flex items-center justify-center p-4 shadow-inner" 
                  style="background-image: url('https://placehold.co/800x400/22c55e/ffffff?text=Beautiful+Grassland!&font=lora'); background-size: cover; background-position: center;">
-                 <!-- This is a placeholder, the JS will add species emojis -->
-                 <div id="grassland-intro" class="relative w-full h-full overflow-hidden rounded-md"></div>
+                <!-- This is a placeholder, the JS will add species emojis -->
+                <div id="grassland-intro" class="relative w-full h-full overflow-hidden rounded-md"></div>
             </div>
-            <h1 class="text-3xl font-bold text-gray-800">This grassland is full of life!</h1>
-            <p class="text-xl text-gray-600">But how can we possibly count <em>everything</em>?</p>
-            <button id="btn-screen1" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-lg">
+            <!-- Responsive text -->
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">This grassland is full of life!</h1>
+            <p class="text-lg sm:text-xl text-gray-600">But how can we possibly count <em>everything</em>?</p>
+            <button id="btn-screen1" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-base sm:text-lg">
                 How do scientists do it?
             </button>
         </div>
 
         <!-- Screen 2: Introducing the Quadrat -->
         <div id="screen2" class="module-screen space-y-6">
-            <div class="flex items-center justify-center space-x-6">
-                <span class="text-8xl">👩‍🔬</span>
+            <!-- Flex container now stacks vertically on mobile (flex-col) and rows on sm+ (sm:flex-row) -->
+            <div class="flex flex-col sm:flex-row items-center justify-center sm:space-x-6 space-y-4 sm:space-y-0">
+                <!-- Responsive emoji size -->
+                <span class="text-7xl sm:text-8xl">👩‍🔬</span>
                 <div>
                     <div class="p-4 bg-gray-100 rounded-lg shadow-inner">
-                        <p class="text-lg text-gray-700">"We can't count everything! So, we take a small sample using a special tool called a <strong>Quadrat</strong>."</p>
+                        <!-- Responsive text -->
+                        <p class="text-base sm:text-lg text-gray-700">"We can't count everything! So, we take a small sample using a special tool called a <strong>Quadrat</strong>."</p>
                     </div>
                 </div>
             </div>
@@ -85,12 +90,12 @@
                     <span class="text-gray-500 font-medium">Quadrat Frame</span>
                 </div>
             </div>
-            <p class="text-xl text-gray-600">A quadrat is just a square frame. We count what's <em>inside</em> it to estimate what's in the <em>whole</em> field!</p>
+            <p class="text-lg sm:text-xl text-gray-600">A quadrat is just a square frame. We count what's <em>inside</em> it to estimate what's in the <em>whole</em> field!</p>
             <div class="flex justify-center space-x-4">
-                <button id="btn-screen2-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-lg">
+                <button id="btn-screen2-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-base sm:text-lg">
                     Back
                 </button>
-                <button id="btn-screen2" class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition-all text-lg">
+                <button id="btn-screen2" class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition-all text-base sm:text-lg">
                     Let's try it!
                 </button>
             </div>
@@ -98,24 +103,24 @@
 
         <!-- Screen 3: The First Count (Animation) -->
         <div id="screen3" class="module-screen space-y-6">
-            <h2 class="text-2xl font-bold text-gray-800">Let's take a sample!</h2>
-            <!-- The interactive grassland area -->
-            <div id="grassland-main" class="relative w-full h-96 bg-green-600 rounded-lg shadow-inner overflow-hidden border-4 border-green-800">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800">Let's take a sample!</h2>
+            <!-- The interactive grassland area: Reduced height on mobile (h-72) and larger on sm+ (sm:h-96) -->
+            <div id="grassland-main" class="relative w-full h-72 sm:h-96 bg-green-600 rounded-lg shadow-inner overflow-hidden border-4 border-green-800">
                 <!-- Quadrat will be added here by JS -->
                 <!-- Species will be added here by JS -->
             </div>
             <!-- Counter display -->
-            <div id="counter-display" class="p-4 bg-gray-100 rounded-lg shadow-inner text-left text-lg space-y-2">
+            <div id="counter-display" class="p-4 bg-gray-100 rounded-lg shadow-inner text-left text-base sm:text-lg space-y-2">
                 <p>Click "Throw Quadrat!" to start.</p>
             </div>
             <div class="flex justify-center space-x-4">
-                <button id="btn-screen3-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-lg">
+                <button id="btn-screen3-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-base sm:text-lg">
                     Back
                 </button>
-                <button id="btn-screen3-throw" class="px-6 py-3 bg-yellow-500 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition-all text-lg">
+                <button id="btn-screen3-throw" class="px-6 py-3 bg-yellow-500 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition-all text-base sm:text-lg">
                     Throw Quadrat!
                 </button>
-                <button id="btn-screen3-next" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-lg hidden">
+                <button id="btn-screen3-next" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-base sm:text-lg hidden">
                     Next
                 </button>
             </div>
@@ -123,23 +128,25 @@
         
         <!-- Screen 4: The Problem of Size -->
         <div id="screen4" class="module-screen space-y-6">
-            <h2 class="text-2xl font-bold text-gray-800">What's the right size?</h2>
-            <div class="flex items-center justify-center space-x-4">
-                <span class="text-6xl">🤔</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800">What's the right size?</h2>
+            <!-- Flex container now stacks vertically on mobile -->
+            <div class="flex flex-col sm:flex-row items-center justify-center sm:space-x-4 space-y-4 sm:space-y-0">
+                <!-- Responsive emoji size -->
+                <span class="text-5xl sm:text-6xl">🤔</span>
                 <div class="p-4 bg-gray-100 rounded-lg shadow-inner text-left">
-                    <p class="text-lg text-gray-700">"But... what if our quadrat is the wrong size? If it's too small, we'll miss species. If it's too big, it's too hard to count!"</p>
+                    <p class="text-base sm:text-lg text-gray-700">"But... what if our quadrat is the wrong size? If it's too small, we'll miss species. If it's too big, it's too hard to count!"</p>
                 </div>
             </div>
             <!-- Animation display area -->
             <div id="animation-display" class="w-full h-48 p-4 bg-gray-100 rounded-lg shadow-inner flex items-center justify-center">
                 <p class="text-gray-500">Animation will play here...</p>
             </div>
-            <p class="text-xl text-gray-600">How do we find the <em>perfect</em> size?</p>
+            <p class="text-lg sm:text-xl text-gray-600">How do we find the <em>perfect</em> size?</p>
             <div class="flex justify-center space-x-4">
-                <button id="btn-screen4-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-lg">
+                <button id="btn-screen4-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-base sm:text-lg">
                     Back
                 </button>
-                <button id="btn-screen4" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-lg hidden">
+                <button id="btn-screen4" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-base sm:text-lg hidden">
                     Let's find out!
                 </button>
             </div>
@@ -147,18 +154,18 @@
 
         <!-- Screen 5: Plotting the Species-Area Curve -->
         <div id="screen5" class="module-screen space-y-6">
-            <h2 class="text-2xl font-bold text-gray-800">Plotting the Species-Area Curve!</h2>
-            <p class="text-lg text-gray-600">Let's plot the results from our test!</p>
-            <!-- Canvas for the chart -->
-            <div class="w-full p-4 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800">Plotting the Species-Area Curve!</h2>
+            <p class="text-base sm:text-lg text-gray-600">Let's plot the results from our test!</p>
+            <!-- Canvas for the chart: Added responsive height h-64 sm:h-96 -->
+            <div class="w-full h-64 sm:h-96 p-4 bg-gray-50 rounded-lg shadow-inner">
                 <canvas id="species-chart"></canvas>
             </div>
-            <p id="graph-text" class="text-xl text-gray-700 font-medium h-6"></p>
+            <p id="graph-text" class="text-lg sm:text-xl text-gray-700 font-medium h-6"></p>
             <div class="flex justify-center space-x-4">
-                <button id="btn-screen5-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-lg">
+                <button id="btn-screen5-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-base sm:text-lg">
                     Back
                 </button>
-                <button id="btn-screen5" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-lg hidden">
+                <button id="btn-screen5" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-base sm:text-lg hidden">
                     What does this mean?
                 </button>
             </div>
@@ -166,25 +173,26 @@
 
         <!-- Screen 6: Fixing the Quadrat Size -->
         <div id="screen6" class="module-screen space-y-6">
-            <h2 class="text-2xl font-bold text-gray-800">Finding the Best Size!</h2>
-            <div class="flex items-center justify-center space-x-4">
-                <span class="text-6xl">👩‍🔬</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800">Finding the Best Size!</h2>
+            <!-- Flex container now stacks vertically on mobile -->
+            <div class="flex flex-col sm:flex-row items-center justify-center sm:space-x-4 space-y-4 sm:space-y-0">
+                <span class="text-5xl sm:text-6xl">👩‍🔬</span>
                 <div class="p-4 bg-gray-100 rounded-lg shadow-inner text-left">
-                    <p class="text-lg text-gray-700">"Look! The curve went flat! This means that even when we used a <em>huge</em> quadrat, we didn't find any <em>new</em> species."</p>
+                    <p class="text-base sm:text-lg text-gray-700">"Look! The curve went flat! This means that even when we used a <em>huge</em> quadrat, we didn't find any <em>new</em> species."</p>
                 </div>
             </div>
             <!--  -->
             <div class="p-4 border-4 border-red-500 rounded-lg bg-red-50 shadow-lg">
-                <p class="text-xl text-gray-700">This is a <strong>Species-Area Curve</strong>. The point where the curve flattens (the "plateau") is the <strong>minimal area</strong>.
-                </This>
+                <p class="text-lg sm:text-xl text-gray-700">This is a <strong>Species-Area Curve</strong>. The point where the curve flattens (the "plateau") is the <strong>minimal area</strong>.
+                </p> <!-- Corrected closing tag -->
             </div>
-            <p class="text-xl text-gray-600">It tells us the <em>smallest</em> size we need to capture most of the species.</p>
-            <p class="text-2xl font-bold text-green-700">For this grassland, the "Large (1.0m)" quadrat is the perfect size!</p>
+            <p class="text-lg sm:text-xl text-gray-600">It tells us the <em>smallest</em> size we need to capture most of the species.</p>
+            <p class="text-xl sm:text-2xl font-bold text-green-700">For this grassland, the "Large (1.0m)" quadrat is the perfect size!</p>
             <div class="flex justify-center space-x-4">
-                <button id="btn-screen6-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-lg">
+                <button id="btn-screen6-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-base sm:text-lg">
                     Back
                 </button>
-                <button id="btn-screen6" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-lg">
+                <button id="btn-screen6" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-base sm:text-lg">
                     Finish!
                 </button>
             </div>
@@ -192,18 +200,18 @@
 
         <!-- Screen 7: Summary -->
         <div id="screen7" class="module-screen space-y-6">
-            <h2 class="text-3xl font-bold text-green-700">Great job! 🥳</h2>
-            <p class="text-xl text-gray-600">You learned:</p>
-            <ul class="text-left text-lg list-disc list-inside bg-gray-100 p-6 rounded-lg shadow-inner space-y-2">
+            <h2 class="text-2xl sm:text-3xl font-bold text-green-700">Great job! 🥳</h2>
+            <p class="text-lg sm:text-xl text-gray-600">You learned:</p>
+            <ul class="text-left text-base sm:text-lg list-disc list-inside bg-gray-100 p-6 rounded-lg shadow-inner space-y-2">
                 <li>A <strong>quadrat</strong> is a frame used to sample an area.</li>
                 <li>We count the number of species <em>inside</em> it.</li>
                 <li>A <strong>species-area curve</strong> helps us find the <em>best</em> quadrat size.</li>
             </ul>
             <div class="flex justify-center space-x-4">
-                <button id="btn-screen7-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-lg">
+                <button id="btn-screen7-back" class="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-all text-base sm:text-lg">
                     Back
                 </button>
-                <button id="btn-screen7" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-lg">
+                <button id="btn-screen7" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all text-base sm:text-lg">
                     Start Again
                 </button>
             </div>
@@ -281,7 +289,7 @@
             // --- GO TO SCREEN LOGIC ---
             screens.forEach(screen => {
                 screen.classList.remove('active-screen');
-                screen.classList.add('hidden');
+                screen.classList.add('hidden'); // Use 'hidden' to be consistent, though 'display: none' is the CSS rule
             });
             const activeScreen = document.getElementById(`screen${screenNum}`);
             if (activeScreen) {
@@ -529,6 +537,8 @@
                 },
                 options: {
                     responsive: true,
+                    // Added maintainAspectRatio: false to prevent mobile overflow
+                    maintainAspectRatio: false, 
                     animation: {
                         duration: 0 // We'll do our own animation
                     },
